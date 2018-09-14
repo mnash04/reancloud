@@ -21,11 +21,6 @@
     src: /reancloud/elk/playbooks/roles/logstash/files/logstash.conf
     dest: /etc/logstash/logstash.conf
 
-- name: Start Logstash
-  service:
-     name: logstash
-     state: started
-
 - name: Run Logstash command
   shell: /usr/share/logstash/bin/logstash -f /etc/logstash/logstash.conf
 
