@@ -46,6 +46,13 @@
   tags:
       - plugins
 
+#adjust 2G heap size to 200M
+- name: Copy custom Conf File to adjust heap size 
+  copy:
+    src: /reancloud/elk/playbooks/roles/elastic/files/jvm.options
+    dest: /etc/elasticsearch/node1/jvm.options 
+    force: yes
+
   #We always execute xpack as we may need to remove features
 - name: include xpack/elasticsearch-xpack.yml
   include: xpack/elasticsearch-xpack.yml
@@ -54,13 +61,6 @@
 
 - name: flush handlers
   meta: flush_handlers
-
-
-- name: Copy custom Conf File to adjust heap size 
-  copy:
-    src: /reancloud/elk/playbooks/roles/elastic/files/jvm.options
-    dest: /etc/elasticsearch/node1/jvm.options 
-    force: yes
 
 - name: Make sure elasticsearch is started
   become: yes
