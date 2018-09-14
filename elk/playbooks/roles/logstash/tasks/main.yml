@@ -14,8 +14,8 @@
 - name: Copy Conf File
   copy:
     src: /reancloud/elk/playbooks/roles/logstash/files/logstash.conf
-    dest: /etc/logstash/logstash.conf 
+    dest: /etc/logstash/logstash.conf
 
 - name: Start Logstash
-  shell: nohup /usr/share/logstash/bin/logstash -f logstash.conf & 
+  shell: /usr/share/logstash/bin/logstash -f /etc/logstash/logstash.conf & 
     
