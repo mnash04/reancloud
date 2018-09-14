@@ -1,15 +1,20 @@
 ---
 # tasks file for logstash
 
-- name: Download Logstash RPM
-  get_url:
-    url: https://artifacts.elastic.co/downloads/logstash/logstash-6.4.0.rpm
-    dest: /tmp/
+- name: Download Logstash Signing Key
+  rpm_key:
+    state: present
+    key: rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+- name: Add logstash config repo to yum repos
+  copy:
+    src: /reancloud/elk/playbooks/roles/logstash/files/logstash.repo  
+    dest: /etc/yum.repos.d/
 
 - name: Install Logstash RPM
   yum:
-    name: /tmp/logstash-6.4.0.rpm
-    state: present
+    name: logstash
+    state: latest
 
 - name: Copy Conf File
   copy:
@@ -17,5 +22,11 @@
     dest: /etc/logstash/logstash.conf
 
 - name: Start Logstash
-  shell: /usr/share/logstash/bin/logstash -f /etc/logstash/logstash.conf & 
+  service:
+     name: logstash
+     state: started
+
+- name: Run Logstash command
+  shell: /usr/share/logstash/bin/logstash -f /etc/logstash/logstash.conf
+
     
