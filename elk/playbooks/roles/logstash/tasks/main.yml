@@ -1,2 +1,21 @@
 ---
 # tasks file for logstash
+
+- name: Download Logstash RPM
+  get_url:
+    url: https://artifacts.elastic.co/downloads/logstash/logstash-6.4.0.rpm
+    dest: /tmp/
+
+- name: Install Logstash RPM
+  yum:
+    name: /tmp/logstash-6.4.0.rpm
+    state: present
+
+- name: Copy Conf File
+  copy:
+    src: /reancloud/elk/playbooks/roles/logstash/files/logstash.conf
+    dest: /etc/logstash/logstash.conf 
+
+- name: Start Logstash
+  shell: nohup /usr/share/logstash/bin/logstash -f logstash.conf & 
+    

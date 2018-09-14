@@ -4,11 +4,11 @@
 - name: Download Kibana RPM
   get_url:
     url: https://artifacts.elastic.co/downloads/kibana/kibana-6.4.0-x86_64.rpm
-    dest: /
+    dest: /tmp/
     
 - name: Install Kibana RPM
   yum: 
-    name: /kibana-6.4.0-x86_64.rpm
+    name: /tmp/kibana-6.4.0-x86_64.rpm
     state: present
 
 - name: Enable Kibana Service -- chkconfig
