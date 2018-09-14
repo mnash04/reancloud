@@ -1,0 +1,24 @@
+---
+# tasks file for kibana
+
+- name: Download Kibana RPM
+  get_url:
+    url: https://artifacts.elastic.co/downloads/kibana/kibana-6.4.0-x86_64.rpm
+    dest: /
+    
+- name: Install Kibana RPM
+  yum: 
+    name: /kibana-6.4.0-x86_64.rpm
+    state: present
+
+- name: Enable Kibana Service -- chkconfig
+  service:
+    name: kibana
+    enabled: yes
+
+- name: Start Kibana service
+  service:
+    name: kibana
+    state: started
+  
+
