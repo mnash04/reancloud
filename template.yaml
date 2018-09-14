@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: "2010-09-09"  
+Resources:  
+  WebInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.small
+      ImageId: ami-07d23aa437529757d
+      KeyName: job1
+      SecurityGroupIds:
+        - sg-0bcee085f6d446622
+      SubnetId: subnet-91da7fbf
+      Tags:
+        -
+          Key: Name
+          Value: Jenkins
