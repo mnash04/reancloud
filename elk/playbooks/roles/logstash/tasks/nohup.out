@@ -1,0 +1,27 @@
+OpenJDK 64-Bit Server VM warning: If the number of processors is expected to increase from one, then you should configure the number of parallel GC threads appropriately using -XX:ParallelGCThreads=N
+WARNING: Could not find logstash.yml which is typically located in $LS_HOME/config or /etc/logstash. You can specify the path using --path.settings. Continuing using the defaults
+Could not find log4j2 configuration at path /usr/share/logstash/config/log4j2.properties. Using default config which logs errors to the console
+[WARN ] 2018-09-14 14:36:34.968 [LogStash::Runner] multilocal - Ignoring the 'pipelines.yml' file because modules or command line options are specified
+[INFO ] 2018-09-14 14:36:36.211 [LogStash::Runner] runner - Starting Logstash {"logstash.version"=>"6.4.0"}
+[INFO ] 2018-09-14 14:36:36.361 [Ruby-0-Thread-1: /usr/share/logstash/lib/bootstrap/environment.rb:6] configpathloader - No config files found in path {:path=>"/reancloud/elk/playbooks/roles/logstash/tasks/logstash.conf"}
+[ERROR] 2018-09-14 14:36:36.378 [Ruby-0-Thread-1: /usr/share/logstash/lib/bootstrap/environment.rb:6] sourceloader - No configuration found in the configured sources.
+[INFO ] 2018-09-14 14:36:36.984 [Api Webserver] agent - Successfully started Logstash API endpoint {:port=>9600}
+OpenJDK 64-Bit Server VM warning: If the number of processors is expected to increase from one, then you should configure the number of parallel GC threads appropriately using -XX:ParallelGCThreads=N
+WARNING: Could not find logstash.yml which is typically located in $LS_HOME/config or /etc/logstash. You can specify the path using --path.settings. Continuing using the defaults
+Could not find log4j2 configuration at path /usr/share/logstash/config/log4j2.properties. Using default config which logs errors to the console
+[WARN ] 2018-09-14 14:40:05.388 [LogStash::Runner] multilocal - Ignoring the 'pipelines.yml' file because modules or command line options are specified
+[INFO ] 2018-09-14 14:40:08.761 [LogStash::Runner] runner - Starting Logstash {"logstash.version"=>"6.4.0"}
+[INFO ] 2018-09-14 14:40:13.910 [Converge PipelineAction::Create<main>] pipeline - Starting pipeline {:pipeline_id=>"main", "pipeline.workers"=>1, "pipeline.batch.size"=>125, "pipeline.batch.delay"=>50}
+[INFO ] 2018-09-14 14:40:15.140 [[main]-pipeline-manager] elasticsearch - Elasticsearch pool URLs updated {:changes=>{:removed=>[], :added=>[http://localhost:9200/]}}
+[INFO ] 2018-09-14 14:40:15.149 [[main]-pipeline-manager] elasticsearch - Running health check to see if an Elasticsearch connection is working {:healthcheck_url=>http://localhost:9200/, :path=>"/"}
+[WARN ] 2018-09-14 14:40:15.621 [[main]-pipeline-manager] elasticsearch - Restored connection to ES instance {:url=>"http://localhost:9200/"}
+[INFO ] 2018-09-14 14:40:16.223 [[main]-pipeline-manager] elasticsearch - ES Output version determined {:es_version=>6}
+[WARN ] 2018-09-14 14:40:16.226 [[main]-pipeline-manager] elasticsearch - Detected a 6.x and above cluster: the `type` event field won't be used to determine the document _type {:es_version=>6}
+[INFO ] 2018-09-14 14:40:16.292 [[main]-pipeline-manager] elasticsearch - New Elasticsearch output {:class=>"LogStash::Outputs::ElasticSearch", :hosts=>["//localhost:9200"]}
+[INFO ] 2018-09-14 14:40:16.388 [Ruby-0-Thread-5: :1] elasticsearch - Using mapping template from {:path=>nil}
+[INFO ] 2018-09-14 14:40:16.406 [Ruby-0-Thread-5: :1] elasticsearch - Attempting to install template {:manage_template=>{"template"=>"logstash-*", "version"=>60001, "settings"=>{"index.refresh_interval"=>"5s"}, "mappings"=>{"_default_"=>{"dynamic_templates"=>[{"message_field"=>{"path_match"=>"message", "match_mapping_type"=>"string", "mapping"=>{"type"=>"text", "norms"=>false}}}, {"string_fields"=>{"match"=>"*", "match_mapping_type"=>"string", "mapping"=>{"type"=>"text", "norms"=>false, "fields"=>{"keyword"=>{"type"=>"keyword", "ignore_above"=>256}}}}}], "properties"=>{"@timestamp"=>{"type"=>"date"}, "@version"=>{"type"=>"keyword"}, "geoip"=>{"dynamic"=>true, "properties"=>{"ip"=>{"type"=>"ip"}, "location"=>{"type"=>"geo_point"}, "latitude"=>{"type"=>"half_float"}, "longitude"=>{"type"=>"half_float"}}}}}}}}
+[INFO ] 2018-09-14 14:40:16.481 [Ruby-0-Thread-5: :1] elasticsearch - Installing elasticsearch template to _template/logstash
+[INFO ] 2018-09-14 14:40:16.568 [Converge PipelineAction::Create<main>] pipeline - Pipeline started successfully {:pipeline_id=>"main", :thread=>"#<Thread:0xc049632 run>"}
+[INFO ] 2018-09-14 14:40:16.724 [Ruby-0-Thread-1: /usr/share/logstash/lib/bootstrap/environment.rb:6] agent - Pipelines running {:count=>1, :running_pipelines=>[:main], :non_running_pipelines=>[]}
+[INFO ] 2018-09-14 14:40:17.318 [[main]-pipeline-manager] pipeline - Pipeline has terminated {:pipeline_id=>"main", :thread=>"#<Thread:0xc049632 run>"}
+[INFO ] 2018-09-14 14:40:17.509 [Api Webserver] agent - Successfully started Logstash API endpoint {:port=>9600}
