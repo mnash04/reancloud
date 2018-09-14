@@ -1,6 +1,6 @@
----
+--
 - hosts: all
   become: true
   roles:
-    - role: elasticsearch
+    - role: elastic
       es_instance_name: "node1"
