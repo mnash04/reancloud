@@ -11,6 +11,12 @@
     name: /tmp/kibana-6.4.0-x86_64.rpm
     state: present
 
+- name: Copy Conf File
+  copy:
+    src: /reancloud/elk/playbooks/roles/kibana/files/kibana.yml
+    dest: /etc/kibana/
+    force: yes
+
 - name: Enable Kibana Service -- chkconfig
   service:
     name: kibana
