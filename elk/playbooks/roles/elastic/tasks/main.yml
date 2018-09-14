@@ -58,7 +58,7 @@
 
 - name: Copy custom Conf File to adjust heap size 
   copy:
-    src: /reancloud/elk/playbooks/roles/elasticsearch/files/jvm.options
+    src: /reancloud/elk/playbooks/roles/elastic/files/jvm.options
     dest: /etc/elasticsearch/node1/jvm.options 
     force: yes
 
